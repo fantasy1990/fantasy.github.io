@@ -20,18 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="单一职责原则 定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。">
+  <meta name="description" content="单一职责原则 定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。  一个类、接口、方法只做一件事。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式六大原则">
 <meta property="og:url" content="http://yoursite.com/2020/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/index.html">
 <meta property="og:site_name" content="范特西">
-<meta property="og:description" content="单一职责原则 定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。">
+<meta property="og:description" content="单一职责原则 定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。  一个类、接口、方法只做一件事。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-1.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-2.png">
 <meta property="article:published_time" content="2020-02-23T13:59:31.000Z">
-<meta property="article:modified_time" content="2020-02-23T15:08:07.186Z">
+<meta property="article:modified_time" content="2020-03-02T08:29:29.048Z">
 <meta property="article:author" content="fantasy">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/design_pattern/0-1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/">
 
@@ -178,10 +181,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-23 21:59:31 / 修改时间：23:08:07" itemprop="dateCreated datePublished" datetime="2020-02-23T21:59:31+08:00">2020-02-23</time>
+              <time title="创建时间：2020-02-23 21:59:31" itemprop="dateCreated datePublished" datetime="2020-02-23T21:59:31+08:00">2020-02-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-02 16:29:29" itemprop="dateModified" datetime="2020-03-02T16:29:29+08:00">2020-03-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -214,14 +223,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
+              <span>664</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -234,40 +243,20 @@
 
       
         <h3 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h3><blockquote>
-<p>定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。<br>  <a id="more"></a></p>
+<p>定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。<br>  一个类、接口、方法只做一件事。<br>  <a id="more"></a></p>
 </blockquote>
 <ul>
-<li><p>问题由来：</p>
-<p>  类T负责两个不同的职责：职责P1，职责P2。当由于职责P1需求发生改变而需要修改类T时，有可能会导致原本运行正常的职责P2功能发生故障。</p>
-</li>
-<li><p>解决方案:</p>
-<p>遵循单一职责原则。分别建立两个类T1、T2，使T1完成职责P1功能，T2完成职责P2功能。这样，当修改类T1时，不会使职责P2发生故障风险；同理，当修改T2时，也不会使职责P1发生故障风险</p>
-</li>
-<li><p>举例说明</p>
-<ol>
-<li>用一个类描述动物呼吸这个场景：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		System.out.println(animal+<span class="string">"呼吸空气"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Animal animal = <span class="keyword">new</span> Animal();</span><br><span class="line">		animal.breathe(<span class="string">"牛"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"羊"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"猪"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行结果: </span><br><span class="line">牛呼吸空气 </span><br><span class="line">羊呼吸空气</span><br><span class="line">猪呼吸空气</span><br></pre></td></tr></table></figure>
+<li>例: 设计电话类图<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IPhone</span> </span>&#123;</span><br><span class="line">    <span class="comment">//拨通电话</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dial</span><span class="params">(String phoneNumber)</span></span>;</span><br><span class="line">    <span class="comment">//通话</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chat</span><span class="params">(Object o)</span></span>;</span><br><span class="line">    <span class="comment">//通话完毕，挂电话</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hangup</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ol>
 </li>
 </ul>
-<ol start="2">
-<li>程序上线后，发现问题了，并不是所有的动物都呼吸空气的，比如鱼就是呼吸水的。修改时如果遵循单一职责原则，需要将Animal类细分为陆生动物类Terrestrial，水生动物Aquatic，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Terrestrial</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		System.out.println(animal+<span class="string">"呼吸空气"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Aquatic</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		System.out.println(animal+<span class="string">"呼吸水"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Terrestrial terrestrial = <span class="keyword">new</span> Terrestrial();</span><br><span class="line">		terrestrial.breathe(<span class="string">"牛"</span>);</span><br><span class="line">		terrestrial.breathe(<span class="string">"羊"</span>);</span><br><span class="line">		terrestrial.breathe(<span class="string">"猪"</span>);</span><br><span class="line">		</span><br><span class="line">		Aquatic aquatic = <span class="keyword">new</span> Aquatic();</span><br><span class="line">		aquatic.breathe(<span class="string">"鱼"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">牛呼吸空气</span><br><span class="line">羊呼吸空气</span><br><span class="line">猪呼吸空气</span><br><span class="line">鱼呼吸水</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>我们会发现如果这样修改花销是很大的，除了将原来的类分解之外，还需要修改客户端。而直接修改类Animal来达成目的虽然违背了单一职责原则，但花销却小的多，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">"鱼"</span>.equals(animal))&#123;</span><br><span class="line">			System.out.println(animal+<span class="string">"呼吸水"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(animal+<span class="string">"呼吸空气"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Animal animal = <span class="keyword">new</span> Animal();</span><br><span class="line">		animal.breathe(<span class="string">"牛"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"羊"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"猪"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"鱼"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>可以看到，这种修改方式要简单的多。但是却存在着隐患：有一天需要将鱼分为呼吸淡水的鱼和呼吸海水的鱼，则又需要修改Animal类的breathe方法，而对原有代码的修改会对调用“猪”“牛”“羊”等相关功能带来风险，也许某一天你会发现程序运行的结果变为“牛呼吸水”了。这种修改方式直接在代码级别上违背了单一职责原则，虽然修改起来最简单，但隐患却是最大的。还有一种修改方式：</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		System.out.println(animal+<span class="string">"呼吸空气"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breathe2</span><span class="params">(String animal)</span></span>&#123;</span><br><span class="line">		System.out.println(animal+<span class="string">"呼吸水"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Animal animal = <span class="keyword">new</span> Animal();</span><br><span class="line">		animal.breathe(<span class="string">"牛"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"羊"</span>);</span><br><span class="line">		animal.breathe(<span class="string">"猪"</span>);</span><br><span class="line">		animal.breathe2(<span class="string">"鱼"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>可以看到，这种修改方式没有改动原来的方法，而是在类中新加了一个方法，这样虽然也违背了单一职责原则，但在方法级别上却是符合单一职责原则的，因为它并没有动原来方法的代码。这三种方式各有优缺点，那么在实际编程中，采用哪一中呢？其实这真的比较难说，需要根据实际情况来确定。我的原则是：只有逻辑足够简单，才可以在代码级别上违反单一职责原则；只有类中方法数量足够少，才可以在方法级别上违反单一职责原则；<br><br>例如本文所举的这个例子，它太简单了，它只有一个方法，所以，无论是在代码级别上违反单一职责原则，还是在方法级别上违反，都不会造成太大的影响。实际应用中的类都要复杂的多，一旦发生职责扩散而需要修改类时，除非这个类本身非常简单，否则还是遵循单一职责原则的好。</li>
-</ol>
+<p>分析：IPhone它包含了两个职责：一个是协议管理，一个是数据传送。<br>a. dial()和hangup()两个方法实现的是协议管理，分别负责拨号接通和挂机；<br>b. chat()实现的是数据的传送<br>考虑拆分成两个接口</p>
+<p><img src="/images/design_pattern/0-1.png" alt="职责分明的电话类图"></p>
+<p>拆分后的两个接口组合才会是一个电话类。这样又造成了强耦合。所以再次修改如下结构:</p>
+<p><img src="/images/design_pattern/0-2.png" alt="再次修改后的电话类图"></p>
+<p>一个类实现了两个接口，把两个职责融合在一个类中。</p>
 <ul>
-<li>单一原则的好处<ul>
+<li>总结单一原则的好处<ul>
 <li>类的复杂性降低，实现什么职责都有清晰明确的定义</li>
 <li>可读性提高，复杂性降低，那当然可读性提高了</li>
 <li>可维护性提高，可读性提高，那当然更容易维护了</li>
@@ -424,12 +413,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">1k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3 分钟</span>
+    <span title="站点阅读时长">1 分钟</span>
 </div>
 <div class="powered-by">
  <i class="fa fa-user-md"></i>
