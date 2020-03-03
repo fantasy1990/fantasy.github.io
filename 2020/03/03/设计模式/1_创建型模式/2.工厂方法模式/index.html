@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="概述:工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种">
+  <meta name="description" content="工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工厂方法模式">
 <meta property="og:url" content="http://yoursite.com/2020/03/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1_%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="范特西">
-<meta property="og:description" content="概述:工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种">
+<meta property="og:description" content="工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/design_pattern/2_factory_method/2-1.png">
 <meta property="article:published_time" content="2020-03-03T14:50:00.000Z">
-<meta property="article:modified_time" content="2020-03-03T15:46:51.194Z">
+<meta property="article:modified_time" content="2020-03-03T15:56:07.958Z">
 <meta property="article:author" content="fantasy">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-03 22:50:00 / 修改时间：23:46:51" itemprop="dateCreated datePublished" datetime="2020-03-03T22:50:00+08:00">2020-03-03</time>
+              <time title="创建时间：2020-03-03 22:50:00 / 修改时间：23:56:07" itemprop="dateCreated datePublished" datetime="2020-03-03T22:50:00+08:00">2020-03-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>概述:<br>工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式<br>(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建型模式。</p>
+        <p>工厂方法模式（Fatory Method Pattern）：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建型模式。<br>  <a id="more"></a></p>
 <p>分析简单工厂模式中的TV代码会发现两个问题，</p>
 <ol>
 <li>如果继续添加xiaomi电视，康维电视等那么简单工厂中会有很多if/else。</li>
