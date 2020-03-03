@@ -32,8 +32,16 @@
 <meta property="og:image" content="http://yoursite.com/images/design_pattern/0-3.png">
 <meta property="og:image" content="http://yoursite.com/images/design_pattern/0-4.png">
 <meta property="og:image" content="http://yoursite.com/images/design_pattern/0-5.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-6.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-7.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-8.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-9.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-10.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-11.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-12.png">
+<meta property="og:image" content="http://yoursite.com/images/design_pattern/0-13.png">
 <meta property="article:published_time" content="2020-02-23T13:59:31.000Z">
-<meta property="article:modified_time" content="2020-03-02T09:59:39.821Z">
+<meta property="article:modified_time" content="2020-03-03T03:48:46.240Z">
 <meta property="article:author" content="fantasy">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -192,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-02 17:59:39" itemprop="dateModified" datetime="2020-03-02T17:59:39+08:00">2020-03-02</time>
+                <time title="修改时间：2020-03-03 11:48:46" itemprop="dateModified" datetime="2020-03-03T11:48:46+08:00">2020-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,14 +234,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
+              <span>7.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -282,7 +290,7 @@
 <p>运行结果如下:<br>士兵开始杀敌人…<br>步枪射击…</p>
 </blockquote>
 <blockquote>
-<p>注意 在类中调用其他类时务必要使用父类或接口，如果不能使用父类或接口，则说明类的设计已经违背了LSP原则。</p>
+<p><code>注意 在类中调用其他类时务必要使用父类或接口，如果不能使用父类或接口，则说明类的设计已经违背了LSP原则。</code></p>
 </blockquote>
 <p>现在进行拓展，新增一玩具枪<br>· 基于原来的基类AbstractGun类，进行继承拓展</p>
 <p><img src="/images/design_pattern/0-4.png" alt="玩具枪继承枪械"></p>
@@ -293,7 +301,7 @@
 <p>可想而知，玩具枪和其他的枪械隶属于两个种类的枪，而不应该继承自同一个基类 所以进行如下修改<br>· ToyGun脱离继承，建立一个独立的父类，为了实现代码复用，可以与AbastractGun建立关联委托关系<br><img src="/images/design_pattern/0-5.png" alt="新增玩具枪抽象类"></p>
 <p>可以在AbstractToy中声明将声音、形状都委托给AbstractGun处理，仿真枪的形状和声音都要和真实的枪一样，然后两个基类下的子类自由延展，互不影响。</p>
 <blockquote>
-<p>注意：如果子类不能完整地实现父类的方法，或者父类的某些方法在子类中已经发生“畸变”，则建议断开父子继承关系，采用依赖、聚集、组合等关系代替继承。</p>
+<p><code>注意：如果子类不能完整地实现父类的方法，或者父类的某些方法在子类中已经发生“畸变”，则建议断开父子继承关系，采用依赖、聚集、组合等关系代替继承。</code></p>
 </blockquote>
 <p>例2验证:覆盖或实现父类的方法时输入参数可以被放大</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Father类源代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Collection <span class="title">doSomething</span><span class="params">(HashMap map)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"父类被执行..."</span>);</span><br><span class="line">		<span class="keyword">return</span> map.values();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子类源代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	<span class="comment">//该地方不可以使用标签(@Override)，如果加上该标签，则会报编译错误。这地方是重载(Overload)而不是覆写</span></span><br><span class="line">	<span class="comment">//放大输入参数类型</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Collection <span class="title">doSomething</span><span class="params">(Map map)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"子类被执行..."</span>);</span><br><span class="line">		<span class="keyword">return</span> map.values();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//场景类源代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">invoker</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//父类存在的地方，子类就应该能够存在</span></span><br><span class="line">		Father f = <span class="keyword">new</span> Father();</span><br><span class="line">		HashMap map = <span class="keyword">new</span> HashMap();</span><br><span class="line">		f.doSomething(map);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">invoker1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//里氏替换</span></span><br><span class="line">		Son f =<span class="keyword">new</span> Son();</span><br><span class="line">		HashMap map = <span class="keyword">new</span> HashMap();</span><br><span class="line">		f.doSomething(map);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		invoker();</span><br><span class="line">		invoker1();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -307,7 +315,7 @@
 <p>运行结果:<br>父类被执行…<br>子类被执行…</p>
 </blockquote>
 <blockquote>
-<p>注意：结论就是子类中方法的前置条件必须与超类中被覆写的方法的前置条件相同或者更宽松</p>
+<p><code>注意：结论就是子类中方法的前置条件必须与超类中被覆写的方法的前置条件相同或者更宽松</code></p>
 </blockquote>
 <blockquote>
 <p>同理 覆写或实现父类的方法时输出结果可以被缩小</p>
@@ -324,7 +332,73 @@
 <li>实现类依赖接口或抽象类。<br>更加精简的定义就是“面向接口编程”——OOD（Object-Oriented Design，面向对象设计）的精髓之一。</li>
 </ul>
 </blockquote>
-<h3 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h3><h3 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h3><h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><p>笔记来源&lt;设计模式之禅&gt;</p>
+<ul>
+<li>例: 开发读取TXT和Excel文件的类<br>第一版本类图如下:</li>
+</ul>
+<p><img src="/images/design_pattern/0-6.png" alt="读取不同文件中数据"><br>该版本中有严重的问题:由于每次转换数据时数据来源不一定相同，因此需要更换数据转换类，如有时候需要将TXTDataConvertor改为ExcelDataConvertor，此时，需要修改CustomerDAO的源代码，而且在引入并使用新的数据转换类时也不得不修改CustomerDAO的源代码，系统扩展性较差，违反了开闭原则，现需要对该方案进行重构。</p>
+<p><img src="/images/design_pattern/0-7.png" alt="重构后的读取文件方法"></p>
+<p><code>该重构就是将读取文件这个类进行抽象，而调用的地方实现对接口(抽象类)进行编程</code></p>
+<p>上述重构过程中，我们使用了开闭原则、里氏代换原则和依赖倒转原则，在大多数情况下，这三个设计原则会同时出现，开闭原则是目标，里氏代换原则是基础，依赖倒转原则是手段，它们相辅相成，相互补充，目标一致，只是分析问题时所站角度不同而已。</p>
+<h3 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h3><blockquote>
+<p>定义: 使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。类间的依赖关系应该建立在最小的接口上。</p>
+</blockquote>
+<p><code>与单一原则区别: 接口隔离原则与单一职责的审视角度是不相同的，单一职责要求的是类和接口职责单一，注重的是职责，这是业务逻辑上的划分，而接口隔离原则要求接口的方法尽量少。</code></p>
+<p>例: 设计客户数据显示模块类图如下<br>dataRead()用于从文件中读取数据，<br>transformToXML()用于将数据转换成XML格式，<br>createChart()用于创建图表，<br>displayChart()用于显示图表，<br>createReport()用于创建文字报表，<br>displayReport()用于显示文字报表</p>
+<p><img src="/images/design_pattern/0-8.png" alt="客户数据显示"></p>
+<p>问题:接口很不灵活，如果一个具体的数据显示类无须进行数据转换（源文件本身就是XML格式），但由于实现了该接口，将不得不实现其中声明的transformToXML()方法（至少需要提供一个空实现）；如果需要创建和显示图表，除了需实现与图表相关的方法外，还需要实现创建和显示文字报表的方法，否则程序编译时将报错。</p>
+<p>现使用接口隔离原则对其进行重构:<br>接口按照接口隔离原则和单一职责原则进行重构，将其中的一些方法封装在不同的小接口中，确保每一个接口使用起来都较为方便，并都承担某一单一角色，每个接口中只包含一个客户端（如模块或类）所需的方法即可。</p>
+<p><img src="/images/design_pattern/0-9.png" alt="重构后的客户数据显示"></p>
+<p><code>在使用接口隔离原则时，我们需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；接口也不能太大，太大的接口将违背接口隔离原则，灵活性较差，使用起来很不方便。一般而言，接口中仅包含为某一类用户定制的方法即可，不应该强迫客户依赖于那些它们不用的方法。</code></p>
+<h3 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h3><blockquote>
+<p>定义: 一个软件实体应当尽可能少地与其他实体发生相互作用。<br>其他形式定义: 不要和“陌生人”说话、只与你的直接朋友通信等，在迪米特法则中，对于一个对象，其朋友包括以下几类：</p>
+<ul>
+<li>当前对象本身(this)；</li>
+<li>以参数形式传入到当前对象方法中的对象；</li>
+<li>当前对象的成员对象；</li>
+<li>如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友；</li>
+<li>当前对象所创建的对象。<br>满足以上任一条件即为’朋友’，否则为’陌生人’。<br>在应用迪米特法则时，一个对象只能与直接朋友发生交互，不要与“陌生人”发生直接交互，这样做可以降低系统的耦合度，一个对象的改变不会给太多其他对象带来影响。</li>
+</ul>
+</blockquote>
+<p>迪米特法则要求我们在设计系统时:</p>
+<ol>
+<li>应该尽量减少对象之间的交互。<blockquote>
+<p>如果两个对象之间不必彼此直接通信，那么这两个对象就不应当发生任何直接的相互作用，如果其中的一个对象需要调用另一个对象的某一个方法的话，可以通过第三者转发这个调用。简言之，就是通过引入一个合理的第三者来降低现有对象之间的耦合度。</p>
+</blockquote>
+</li>
+<li>在类的划分上，应当尽量创建松耦合的类。<blockquote>
+<p>类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大波及</p>
+</blockquote>
+</li>
+<li>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限</li>
+<li>在类的设计上，只要有可能，一个类型应当设计成不变类；在对其他类的引用上，一个对象对其他对象的引用应当降到最低</li>
+</ol>
+<p>例: 设计业务操作窗口。<br>在这些窗口中，某些界面控件之间存在复杂的交互关系，一个控件事件的触发将导致多个其他界面控件产生响应，例如，当一个按钮(Button)被单击时，对应的列表框(List)、组合框(ComboBox)、文本框(TextBox)、文本标签(Label)等都将发生改变，在初始设计方案中，界面控件之间的交互关系可简化为如图</p>
+<p><img src="/images/design_pattern/0-10.png" alt="业务操作窗口"></p>
+<p>由于界面控件之间的交互关系复杂，导致在该窗口中增加新的界面控件时需要修改与之交互的其他控件的源代码，系统扩展性较差，也不便于增加和删除新控件。</p>
+<p>现使用迪米特对其进行重构:<br>引入一个专门用于控制界面控件交互的中间类(Mediator)来降低界面控件之间的耦合度。引入中间类之后，界面控件之间不再发生直接引用，而是将请求先转发给中间类，再由中间类来完成对其他控件的调用。当需要增加或删除新的控件时，只需修改中间类即可，无须修改新增控件或已有控件的源代码，重构后结构如图</p>
+<p><img src="/images/design_pattern/0-11.png" alt="重构后的业务操作窗口"></p>
+<h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><p>定义: 一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。<br><code>开闭原则告诉我们应尽量通过扩展软件实体的行为来实现变化，而不是通过修改已有的代码来完成变化，它是为软件实体的未来事件而制定的对现行开发设计进行约束的一个原则</code></p>
+<p>例: 以书店销售书籍,初始类图<br><img src="/images/design_pattern/0-12.png" alt="书店销售书籍类图"></p>
+<p>现需要将部分书籍进行打折销售, 有如下三个方法可对应:</p>
+<ol>
+<li>修改接口<blockquote>
+<p>在IBook上新增加一个方法getOffPrice()，专门用于进行打折处理，所有的实现类实现该方法。<code>缺点：所有实现类都需要修改</code></p>
+</blockquote>
+</li>
+<li>修改实现类<blockquote>
+<p>在需要打折的实现类中的getPrice()中实现打折处理</p>
+</blockquote>
+</li>
+<li>通过扩展实现变化<blockquote>
+<p>增加一个子类OffNovelBook，覆写getPrice方法，高层次的模块（也就是static静态模块区）通过OffNovelBook类产生新的对象，完成业务变化对系统的最小化开发。</p>
+</blockquote>
+</li>
+</ol>
+<p>所以利用开闭原则，及第三种方法进行重构：</p>
+<p><img src="/images/design_pattern/0-13.png" alt="书店销售书籍类图"></p>
+<p>该例中我们通过扩展一个子类拥抱了变化；最后把子类投入运行环境中，新逻辑正式投产。<br>我们发现并没有修改原有的模块代码，IBook接口没有改变，NovelBook类没有改变。</p>
+<p><code>项目开发、重构、测试、投产、运维，其中的重构可以对原有的设计和代码进行修改，运维尽量减少对原有代码的修改，保持历史代码的纯洁性，提高系统的稳定性。</code></p>
+<p>笔记来源&lt;<code>设计模式之禅</code>&gt; &lt;<code>design pattern</code>&gt;</p>
 
     </div>
 
@@ -472,12 +546,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">7k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">7 分钟</span>
 </div>
 <div class="powered-by">
  <i class="fa fa-user-md"></i>
